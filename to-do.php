@@ -98,7 +98,7 @@ $result = $stmt->get_result();
         $totalTasksCount = 0;
     }
 
-    $sql = "SELECT id, title, description, progress,due_date ,is_completed FROM tasks WHERE user_id = ?";
+    $sql = "SELECT id, title, description, progress,due_date ,is_completed  FROM tasks WHERE user_id = ? ";
     $stmt = $db->prepare($sql);
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
@@ -107,11 +107,11 @@ $result = $stmt->get_result();
     $sort = isset($_POST["sort"]) ? $_POST["sort"] : "all"; // Default to "all" if not set
 
     if ($sort === "completed") {
-        $sql = "SELECT id, title, description, progress, due_date, is_completed FROM tasks WHERE user_id = ? ORDER BY is_completed DESC, due_date ASC";
+        $sql = "SELECT id, title, description, progress, due_date, is_completed FROM tasks WHERE user_id = ? AND is_completed = 1";
     } elseif ($sort === "not_completed") {
-        $sql = "SELECT id, title, description, progress, due_date, is_completed FROM tasks WHERE user_id = ? ORDER BY is_completed DESC, due_date ASC";
+        $sql = "SELECT id, title, description, progress, due_date, is_completed FROM tasks WHERE user_id = ? AND is_completed = 0";
     } else {
-        $sql = "SELECT id, title, description, progress, due_date, is_completed FROM tasks WHERE user_id = ? ORDER BY due_date DESC";
+        $sql = "SELECT id, title, description, progress, due_date, is_completed FROM tasks WHERE user_id = ?";
     }
 
 if (isset($_SESSION['delete_success']) && $_SESSION['delete_success']) {

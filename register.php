@@ -4,8 +4,35 @@
     <title>Register - Task Tracker</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto mt-10 p-4 bg-white rounded-lg shadow-lg">
+<style>
+
+body {background-color: #f0f0f0; /* Change the background color to your preference */
+    background-image: url('Asset/todolistbg.jpg');
+      background-size: cover;
+  font-family: 'Arial', sans-serif; /* Change the font to your preference */
+  backdrop-filter:5px;
+
+ }
+ h2{
+   font-size: 35px;
+   color: grey;
+ }
+ .bg-white{
+    background:transparent;
+    border:2px solid rgba(255,255,255,0.9); 
+    border-radius:20px;
+    backdrop-filter:blur(100px);
+ }
+ .container {
+            background-image: url('Asset/background.jpg'); /* Set the path to your image */
+            background-size: cover; /* Adjust the image size to cover the container */
+            background-position: center; /* Center the background image */
+            border:2px solid rgba(255,255,255,0.9);
+        }
+  
+ </style>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="container mx-auto mt-10 p-5 bg-white" style="max-width: 400px;">
         <h2 class="text-2xl font-semibold mb-4">Register</h2>
         <?php
         // Database connection setup (replace with your connection code)
